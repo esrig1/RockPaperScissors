@@ -1,5 +1,5 @@
-let compInput = null;
-let playerInput = null;
+let compInput = "";
+let playerInput = "";
 function computerPlay() {
     let rand = Math.random(2);
     switch(rand) {
@@ -16,7 +16,7 @@ function computerPlay() {
 }
 
 function userInput() {
-    return toUpperCase(prompt("Enter Rock, Paper, or Scissors (not case sensitive)"));
+    return (prompt("Enter Rock, Paper, or Scissors (not case sensitive)")).toUpperCase;
 }
 /**
  * 
@@ -49,9 +49,20 @@ function executeGame(playerInput, compInput) {
 
 
 }
-
+let playerWinCount = 0;
+let compWinCount = 0;
 for(let i = 0; i < 5; i++) {
-    compInput = computerPlay();
+    compInput = "ROCK";
     playerInput = userInput();
-    console.log(executeGame(playerInput, compInput));
+    let gameResult = executeGame(compInput, playerInput);
+    if(gameResult == 0) {
+        alert("Tie! Score is Player: " + playerWinCount + "\tComputer: " + compWinCount);
+    }
+    if(gameResult == 1) {
+        alert("Player Wins! Score is Player: " + playerWinCount + "\tComputer: " + compWinCount);
+    }
+    if(gameResult == 1) {
+        alert("Computer Wins! Score is Player: " + playerWinCount + "\tComputer: " + compWinCount);
+    }
+    alert("error! Score is Player: " + playerWinCount + "\tComputer: " + compWinCount);
 }
